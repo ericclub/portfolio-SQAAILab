@@ -1,4 +1,8 @@
-### VSCode AI Chat - Claude Opus 4.5   
+## 10-AI-vibe-coding  
+___
+**AI :** VSCode AI Chat - Claude Opus 4.5  
+**Context files :** None  
+**Prompt :**  
 ```
 I am a senior QA engineer (QA Ops, formerly a software developer).                      
 The project I am currently working on involves optimizing AI-driven test automation.    
@@ -40,7 +44,10 @@ It would be beneficial to create a web page that allows users to:
 . View general statistics
 ```
 
-### VSCode AI Chat - Claude Opus 4.5   
+___
+**AI :** VSCode AI Chat - Claude Opus 4.5  
+**Context files :** 10-AI-vibe-coding/*  
+**Prompt :**  
 ```
 I want to improve the structure of the project in order to clarify it.
 
@@ -50,9 +57,7 @@ I think to move index.html and style.css into frontend subfolder
 Is it a good idea?
 ```
 
-### VSCode AI Chat - Claude Opus 4.5   
-
-AI suggested some adjustments to my request and asked for my opinion on this proposal.
+AI suggested some adjustments to my request and asked for my opinion on this proposal.  
 
 ```
 Ok, you can proceed with your recommendations.

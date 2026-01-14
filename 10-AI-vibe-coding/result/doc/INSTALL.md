@@ -74,6 +74,7 @@ FLASK_ENV=development
 ### Step 6: Launch the Application (Back-End)
 
 ```bash
+cd C:\dev\portfolio-SQAAILab\10-AI-vibe-coding\result\app\backend\
 python app.py
 ```
 
@@ -87,7 +88,7 @@ Database tables created!
 
 Open:
 ```
-C:\dev\portfolio-SQAAILab\index.html
+C:\dev\portfolio-SQAAILab\10-AI-vibe-coding\result\app\frontend\index.html
 ```
 
 ### Verify the Installation
