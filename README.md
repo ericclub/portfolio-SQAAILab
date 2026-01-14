@@ -1,0 +1,6 @@
+# SQAAILab
+> _Software Quality Assurance & Artificial Intelligence Laboratory_
+
+This project explores how artificial intelligence can enhance Software Quality Assurance (SQA).  
+For detailed information, please refer to the README files within each subfolder.  
+![alt text](SQAAILab.png)
