@@ -44,6 +44,7 @@ This section of the project focuses on applying AI techniques to **Vibe Coding**
     * A lightweight admin web interface (HTML/CSS + JavaScript)
     * Full CRUD operations for Users and Blog Posts
     * Global statistics dashboard
+    * See /10-AI-vibe-coding/doc/INSTALL.md to execute
 
 * My AI Discovery
     * Vibe Coding assistance
