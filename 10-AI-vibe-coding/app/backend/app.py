@@ -1,13 +1,17 @@
 # app.py - Flask Blog API Application for QA Testing
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from pathlib import Path
 import os
 
 app = Flask(__name__)
 CORS(app)
+
+# Define frontend directory path
+FRONTEND_DIR = Path(__file__).parent.parent / 'frontend'
 
 # Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
@@ -19,7 +23,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key')
 
 db = SQLAlchemy(app)
 
-# ==================== MODELS ==
+# ==================== MODELS ====================
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -69,6 +73,16 @@ class Post(db.Model):
         }
 
 # ==================== ROUTES API ====================
+
+@app.route('/')
+def index():
+    """Serve the frontend"""
+    return send_from_directory(FRONTEND_DIR, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    """Serve static files from frontend"""
+    return send_from_directory(FRONTEND_DIR, path)
 
 @app.route('/api/health', methods=['GET'])
 def health():
