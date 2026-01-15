@@ -1,0 +1,29 @@
+# <type>(<scope>): <subject>
+# type(nn-xxxx section): AI usage - What have been done - from what context 
+
+# --------------------------------------------------
+# <Types> - Recommended
+# feat = new feature
+# doc = documentation
+# fix = bug fix
+# impr = improvement
+# style = aesthetics, ergonomics
+# refactor = refactoring
+# perf = performance
+# test = added/modified tests
+# build = application build 
+
+# (scope) - optional
+# specifies the section of the codebase
+
+# :<Subject> - Imperative
+# max 72 characters
+
+# Examples:
+# feat(10-AI-vibe-coding): AI coding - Laboratory application & installation guide gerated
+# doc(15-AI-doc-generation): AI documentation - User Guide genreated 
+# doc(99-templates): AI assistance - Templates to follow for clarity
+# doc(nn-xxxx, section): AI assistance - Update installation instructions
+# refactor(nn-xxxx, section): AI code review - simplify date formatting logic
+
+
