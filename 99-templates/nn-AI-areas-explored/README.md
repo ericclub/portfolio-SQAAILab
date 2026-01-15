@@ -25,7 +25,7 @@ This section of the project focuses on applying AI techniques to **[AI Specific 
 e.g.
 * `src/`: Code, Script, AI prompts.
 * `data/`: Sample datasets or test logs.
-* `results/`: Should be always their. people will be very interested in what you actually discovered. Comparison md reports between manual and AI-assisted QA. Prompt should be copy here. If there are specific commands to run, use ``backticks`` to make them stand out. Keep it Brief, clear, simple.
+* `results/`: Should always be there. People will be very interested in what you actually discovered. Comparison md reports between manual and AI-assisted QA. Prompt should be copy here. If there are specific commands to run, use ``backticks`` to make them stand out. Keep it Brief, clear, simple.
 
 ### My AI Discoveries 
 * [AI areas lists]

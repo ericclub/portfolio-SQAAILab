@@ -9,7 +9,7 @@ This section of the project focuses on applying AI techniques to **AI-powered Do
 
 1. Quickly produce the application user guide 
 2. The document should be in Markdown format
-3. The document should explain to a Client, Product Owner, QA Analysist or all other stakeholders who want to understand how to use the applicaton
+3. The document should explain to a Client, Product Owner, QA Analyst or all other stakeholders who want to understand how to use the application
 
 #### Tools & Technologies
 
@@ -28,9 +28,9 @@ This section of the project focuses on applying AI techniques to **AI-powered Do
 
 #### Results
 
-A quick and good user guide directly generated from the code that realy help stakeholders to understand the usage of the application.
+A quick and good user guide directly generated from the code that really helps stakeholders to understand the usage of the application.
 
 see ..\result\user_guide.md  
 
 ### My AI Discoveries 
-    * AI-powered Sementic Documentation
+    * AI-powered Semantic Documentation
