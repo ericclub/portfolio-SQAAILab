@@ -1,5 +1,5 @@
 
-# Flask Blog API – User Guide
+# Flask Blog API – Technical User Guide 
 
 ## Table of Contents
 1. Introduction
