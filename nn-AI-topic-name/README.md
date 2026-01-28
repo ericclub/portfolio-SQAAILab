@@ -6,8 +6,14 @@ This section of the project focuses on applying AI techniques to **[AI Specific 
 
 ### Objectives
 
-1. [e.g., Reducing manual effort in test case generation.]
-2. [e.g., Increasing code coverage using LLM-based analysis.]
+As a [...] user
+I need [...]
+So I will be able to [...]
+
+or 
+
+1. [...]
+2. [...]
 
 ### Tools & Technologies
 
