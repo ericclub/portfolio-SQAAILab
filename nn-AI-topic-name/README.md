@@ -20,14 +20,14 @@ This section of the project focuses on applying AI techniques to **[AI Specific 
 2. [Brief, clear, simple description of the steps]
 3. [Brief, clear, simple description of the steps]
 
+ℹ️ See AI_Chat_History.md for details 
+
 ### Results
 
-e.g.
-* `src/`: Code, Script, AI prompts.
-* `data/`: Sample datasets or test logs.
-* `results/`: Should always be there. People will be very interested in what you actually discovered. Comparison md reports between manual and AI-assisted QA. Prompt should be copy here. If there are specific commands to run, use ``backticks`` to make them stand out. Keep it Brief, clear, simple.
+* List of what have been generated 
+* List of what have been generated 
+* List of what have been generated 
 
 ### My AI Discoveries 
-* [AI areas lists]
-* [AI areas lists]
-* [AI areas lists]
+
+Describe the plus value to use this kind of AI assistance 
