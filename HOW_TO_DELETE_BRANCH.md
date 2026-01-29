@@ -79,7 +79,7 @@ git push origin --delete copilot/delete-branch
 To verify the branch has been deleted locally:
 
 ```bash
-git branch -a
+git branch
 ```
 
 ### Check Remote Branches
@@ -160,5 +160,5 @@ git fetch --prune
 
 ## Additional Resources
 
-- [Git Documentation - Branches](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+- [Git Documentation - Branch Management](https://git-scm.com/book/en/v2/Git-Branching-Branch-Management)
 - [GitHub Documentation - Managing Branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
