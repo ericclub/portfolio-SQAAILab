@@ -1,8 +1,7 @@
-## 25-AI-vibe-coding-tests
-___
-**AI :** VSCode ClaudeOpus4.5 
-**Context files :** user_stories.md
-**Prompt :**  
+**AI :** VSCode ClaudeOpus4.5       
+**Context files :** user_stories.md       
+**Starting Prompt :**   
+
 ```
 [Context]
  

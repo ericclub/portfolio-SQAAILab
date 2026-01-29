@@ -33,13 +33,13 @@
                 ATTENTION !!!!  always commit at end of day 
                 ------------------------------------------------
 
-[] Ask AI to save current chat by using this prompt  -> 
-"""
-. Can you export this entire chat into [nn-AI-topic-name]/result/AI_Chat_History_<currentDate>.md 
-. Use Markdown format with clear sections, titles, and code blocks preserved.
-. Please note that <currentdate> in the name of the file have to be replaced with the current date using yyyymmdd_HHmmss format
-. Example : If we are January 27 2026 at 10:50:35, the name is AI_Chat_History_20262701_225035.md 
-"""
+[] Ask AI to save current chat by using this prompt  
+
+```
+. Can you export this entire chat into [nn-AI-topic-name]/README_chat_history.md  
+. Use Markdown format with clear sections, titles, and code blocks preserved.  
+. If the file already exist, append to it.  
+```
 
 [] Git Commit using commit template     
 
@@ -61,6 +61,6 @@
 
 ## Merge 
 
+[] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done 
 [] Remove this file 
-[] Pull request + Review + Approve
-[] Merge + delete branch 
+[] Pull request + Review + Approve + Merge + delete branch + Share a post about this topic   

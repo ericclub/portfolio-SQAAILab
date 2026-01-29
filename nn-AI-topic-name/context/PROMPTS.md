@@ -1,7 +1,7 @@
 ___
-**AI :** 
-**Context files :** 
-**Prompt :**  
+**AI :**      
+**Context files :**      
+**Starting Prompt :**       
 
 ------ RCTFET Generic best prompt 
 
