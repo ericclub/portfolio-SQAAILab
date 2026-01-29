@@ -63,4 +63,9 @@ Forecasting quality risks, regression impact, and release readiness based on his
 Enhancing static analysis and code reviews with AI-powered insights focused on quality, testability, and maintainability.  
 
 ### 🔹 Living Documentation & Knowledge Extraction  
-Continuously generating and updating technical and functional documentation directly from evolving codebases and system behavior.  
+Continuously generating and updating technical and functional documentation directly from evolving codebases and system behavior.
+
+---
+## 📚 Useful Resources
+
+- [How to Delete a Git Branch](HOW_TO_DELETE_BRANCH.md) - Complete guide on deleting local and remote Git branches  
