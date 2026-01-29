@@ -15,19 +15,29 @@ The topics listed below represent the current areas of exploration. This reposit
 ## Topics Covered
 
 ### 🔹 Vibe Coding
+10-AI-vibe-coding
 
 An AI-driven development approach where developers use natural language prompts to guide Generative AI models (such as LLMs) to generate, refine, and debug code.
 
 ### 🔹 Reverse Documentation
+15-AI-doc-generation
 
 An analytical approach that leverages existing source code to recreate missing, outdated, or undocumented specifications.
 
 ### 🔹 Generative BDD
+20-AI-QA-analysis-assistant
 
 An AI-assisted approach to **Behavior-Driven Development (BDD)** that automates the generation of BDD scenarios, step definitions, and test scripts. Natural language requirements are transformed into structured **Gherkin (Given–When–Then)** syntax, helping to improve test coverage, reduce manual effort, and increase consistency across the software development lifecycle.
 
 ### 🔹 AI-Generated Test Design  
+20-AI-QA-analysis-assistant
+
 Automatically deriving test cases, edge cases, and exploratory testing ideas from source code, user stories, APIs, and system behavior.
+
+### 🔹 Vibe Coding Tests  
+25-AI-vibe-coding-tests
+
+This is the major trend right now. Instead of worrying about strict code syntax, the tester focuses on the intent (the "vibe") and lets AI (like LLMs) generate the automation code. This makes it possible to create complex tests suites simply by describing the scenario in natural language.
 
 ---
 ## 🔮 Future Areas of Exploration
