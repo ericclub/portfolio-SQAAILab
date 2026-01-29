@@ -34,15 +34,18 @@ An AI-assisted approach to **Behavior-Driven Development (BDD)** that automates 
 
 Automatically deriving test cases, edge cases, and exploratory testing ideas from source code, user stories, APIs, and system behavior.
 
-### 🔹 Intelligent Test Data Generation  
+### 🔹 Vibe Coding Tests  
 25-AI-vibe-coding-tests
 
-Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
+This is the major trend right now. Instead of worrying about strict code syntax, the tester focuses on the intent (the "vibe") and lets AI (like LLMs) generate the automation code. This makes it possible to create complex tests suites simply by describing the scenario in natural language.
 
 ---
 ## 🔮 Future Areas of Exploration
 
 As this project evolves, it aims to explore a broader range of AI-driven capabilities across the Software Quality Assurance lifecycle, including (but not limited to):
+
+### 🔹 Intelligent Test Data Generation  
+Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
 
 ### 🔹 AI-Assisted Bug Detection & Root Cause Analysis  
 Leveraging AI to analyze logs, traces, test results, and code changes to proactively identify defects and suggest probable root causes.
