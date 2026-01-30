@@ -80,7 +80,7 @@ Here's the time it took me with AI assistance:
 **My conclusion,**  
   
 * Manually = 3 to 5 days  
-* AI-assisted = 3 hours.  
+* AI assisted & Manually Reviewed = 3 hours.  
   
 I truly believe that we will no longer be able to do without AI (in a positive way) for software testing.  
 AI will greatly help the industry to deliver high-quality software much faster and more easily.  
