@@ -44,6 +44,12 @@ This is the major trend right now. Instead of worrying about strict code syntax,
 
 As this project evolves, it aims to explore a broader range of AI-driven capabilities across the Software Quality Assurance lifecycle, including (but not limited to):
 
+### 🔹 LLM RAG
+"Large Language Model" with "Retrieval-Augmented Generation" - Consulting an authoritative knowledge base external to the AI ​​training data before generating a response using specific or sensitive information such as local documents, databases, web pages, personal notes, etc.
+
+### 🔹 Intelligent Test Data Generation  
+Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
+
 ### 🔹 Intelligent Test Data Generation  
 Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
 
