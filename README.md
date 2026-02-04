@@ -50,9 +50,6 @@ As this project evolves, it aims to explore a broader range of AI-driven capabil
 ### 🔹 Intelligent Test Data Generation  
 Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
 
-### 🔹 Intelligent Test Data Generation  
-Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
-
 ### 🔹 AI-Assisted Bug Detection & Root Cause Analysis  
 Leveraging AI to analyze logs, traces, test results, and code changes to proactively identify defects and suggest probable root causes.
 
