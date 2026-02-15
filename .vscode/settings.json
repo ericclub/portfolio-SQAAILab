@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./25-AI-vibe-coding-tests/context/src/app/backend"
+    ]
+}
