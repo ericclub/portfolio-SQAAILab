@@ -43,7 +43,7 @@
   
 [X] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
 [X] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
-[] Completed 
+[X] Completed 
 * All checkbox of this file are done 
 * Git Commit
 * Pull request + Review + Approve + Merge + delete branch 

@@ -40,6 +40,8 @@ Automatically deriving test cases, edge cases, and exploratory testing ideas fro
 This is the major trend right now. Instead of worrying about strict code syntax, the tester focuses on the intent (the "vibe") and lets AI (like LLMs) generate the automation code. This makes it possible to create complex tests suites simply by describing the scenario in natural language.
 
 ### 🔹 LLM RAG
+30-AI-LLM-RAG  
+
 "Large Language Model" with "Retrieval-Augmented Generation" - Consulting an authoritative knowledge base external to the AI ​​training data before generating a response using specific or sensitive information such as local documents, databases, web pages, personal notes, etc.
 
 ---
