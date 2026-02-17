@@ -7,7 +7,7 @@
 
 This project explores how **Artificial Intelligence (AI)** can enhance **Software Quality Assurance (SQA)** practices.
 
-Each subfolder focuses on a specific AI-driven approach. Please refer to the corresponding **result/doc/nn-README.md** file in each topic directory for detailed explanations, examples, and workflows.
+Each subfolder focuses on a specific AI-driven approach. Please refer to the corresponding **README.md** file in each directory for detailed explanations, examples, and workflows.
 
 🚀 **Vision:**   
 The topics listed below represent the current areas of exploration. This repository is designed as a living laboratory for AI in Software Quality Assurance and will continuously evolve to experiment with, validate, and document emerging AI-driven techniques, tools, and paradigms as the field matures.
@@ -39,13 +39,13 @@ Automatically deriving test cases, edge cases, and exploratory testing ideas fro
 
 This is the major trend right now. Instead of worrying about strict code syntax, the tester focuses on the intent (the "vibe") and lets AI (like LLMs) generate the automation code. This makes it possible to create complex tests suites simply by describing the scenario in natural language.
 
-### 🔹 LLM RAG
-"Large Language Model" with "Retrieval-Augmented Generation" - Consulting an authoritative knowledge base external to the AI ​​training data before generating a response using specific or sensitive information such as local documents, databases, web pages, personal notes, etc.
-
 ---
 ## 🔮 Future Areas of Exploration
 
 As this project evolves, it aims to explore a broader range of AI-driven capabilities across the Software Quality Assurance lifecycle, including (but not limited to):
+
+### 🔹 LLM RAG
+"Large Language Model" with "Retrieval-Augmented Generation" - Consulting an authoritative knowledge base external to the AI ​​training data before generating a response using specific or sensitive information such as local documents, databases, web pages, personal notes, etc.
 
 ### 🔹 Intelligent Test Data Generation  
 Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.

@@ -17,50 +17,36 @@
 [] Note initial PROMPTS.md to use   
 [] Add files in context if used   
   
-## Tasks   (EACH DAYS)  
+## EACH DAYS Generic Tasks   
   
-[] Work with AI agent until having the right results  
-  
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-  
-  
-                ------------------------------------------------  
-                ATTENTION !!!!  If VSCode is close, chat is lost    
-                ATTENTION !!!!  always commit at end of day   
-                ------------------------------------------------  
-  
-[] Ask AI to save current chat by using this prompt    
-  
+[] Work with AI agents until having the right results  
+[] If needed Ask AI to save current chat by using this prompt    
 ```  
-. Can you export this entire chat into [nn-AI-topic-name]/README_chat_history.md    
+. Can you export this entire chat into [nn-AI-topic-name]/result/doc/chat_history.md    
 . Use Markdown format with clear sections, titles, and code blocks preserved.    
 . If the file already exist, append to it.    
 ```  
+## Topic Specific Tasks
   
-[] Git Commit using commit template       
+[] Specific todo, progress   
+[] Specific todo, progress   
+[] Specific todo, progress   
+[] Specific todo, progress   
+[] Specific todo, progress   
   
 ## Results  
   
 [] AI Results should be placed in Result section  
+[] nn-README.md should be comleted 
+[] AI chats should be copy in /result/doc/chat_history.md
   
-## README.md  (End)  
-  
-[] Tools & Technologies  
-[] How proceeded  
-[] Results list  
-[] My AI Discoveries   
-  
-## Review   
+## Review & Merge  
   
 [] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
-[] Git Commit using commit template   
-  
-## Merge   
-  
 [] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
-[] Pull request + Review + Approve + Merge + delete branch + Share a post about this topic     
+[] Completed 
+* All checkbox of this file are done 
+* Git Commit
+* Pull request + Review + Approve + Merge + delete branch 
+* Share a post about this topic on LinkedIn and/or other Social Network      
     
