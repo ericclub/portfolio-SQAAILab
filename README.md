@@ -12,11 +12,6 @@ Each subfolder focuses on a specific AI-driven approach. Please refer to the cor
 🚀 **Vision:**   
 The topics listed below represent the current areas of exploration. This repository is designed as a living laboratory for AI in Software Quality Assurance and will continuously evolve to experiment with, validate, and document emerging AI-driven techniques, tools, and paradigms as the field matures.
 
-## This is the topic currently being explored.
-
-### 🔹 LLM RAG
-"Large Language Model" with "Retrieval-Augmented Generation" - Consulting an authoritative knowledge base external to the AI ​​training data before generating a response using specific or sensitive information such as local documents, databases, web pages, personal notes, etc.  
-
 ## Topics Covered
 
 ### 🔹 Vibe Coding
