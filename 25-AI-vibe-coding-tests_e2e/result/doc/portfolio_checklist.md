@@ -4,7 +4,7 @@
   
 [X] Create a new branch from main to my topic naming convention   
 [X] Copy   /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to /PORTFOLIO-SQAAILAB  
-[X] Rename /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to his real name by follwing my naming conventio  
+[X] Rename /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to his real name by follwing my naming convention 
   
 ## README.md  (Start)  
   
@@ -14,13 +14,13 @@
   
 ## Context   
   
-[P] Note initial PROMPTS.md to use   
+[X] Note initial PROMPTS.md to use   
 [X] Add files in context if used   
   
 ## EACH DAYS Generic Tasks   
   
-[P] Work with AI agents until having the right results  
-[P] If needed Ask AI to save current chat by using this prompt    
+[X] Work with AI agents until having the right results  
+[X] If needed Ask AI to save current chat by using this prompt    
 ```  
 . Can you export this entire chat into [nn-AI-topic-name]/result/doc/chat_history.md    
 . Use Markdown format with clear sections, titles, and code blocks preserved.    
@@ -28,23 +28,26 @@
 ```  
 ## Topic Specific Tasks
   
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-[] Specific todo, progress   
-  
+[AI] New Web Application Generated 
+[AI] Application Installation ducumentation generated    
+[AI] Test Plan Created    
+[AI] Python, Pytest, Selenium Installed   
+[AI] Selenium test suites generated based on Test Plan and Application source    
+[AI] Selenium Installation Documentation generated      
+[X] Validation/Review of all documentation produced    
+[X] Validation of all Application and tools installed   
+[X] Validation of Test suites usages    
+   
 ## Results  
   
-[] AI Results should be placed in Result section  
-[] nn-README.md should be comleted 
-[] AI chats should be copy in /result/doc/chat_history.md
+[AI] 00-README.md should be comleted based on nn-README.md format  
+[AI] AI chats should be copy in /result/doc/chat_history.md
   
 ## Review & Merge  
   
-[] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
-[] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
-[] Completed 
+[AI] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
+[X] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
+[X] Completed 
 * All checkbox of this file are done 
 * Git Commit
 * Pull request + Review + Approve + Merge + delete branch 
