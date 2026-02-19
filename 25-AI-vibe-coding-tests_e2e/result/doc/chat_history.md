@@ -1,5 +1,5 @@
 ```  
-. Can you export this chat session into DEMO/result/doc/chat_history.md    
+. Can you export this chat session into 25-AI-vibe-coding-tests-e2e/result/doc/chat_history.md    
 . Use Markdown format with clear sections, titles, and code blocks preserved.    
 . If the file already exist, append to it.    
 ```
@@ -17,14 +17,14 @@
 **Contexte:** À partir du code sources, création d'un plan de test avec User Story, Critères d'acceptation et cas de test.
 
 **Tâche:** 
-- Créer un plan de test pour l'application Web de blog `DEMO/result/src`
-- Enregistrer dans `DEMO/result/doc/test_plan.md` en format Markdown et en Français
+- Créer un plan de test pour l'application Web de blog `25-AI-vibe-coding-tests-e2e/result/src`
+- Enregistrer dans `25-AI-vibe-coding-tests-e2e/result/doc/test_plan.md` en format Markdown et en Français
 - Produire 3 suites de tests 'end to end' pour les sections principales (Users, Posts, Statistics)
 - Inclure les stories, critères d'acceptation et cas de test
 
 ### 🤖 Réponse Assistant
 
-Le plan de test a été créé dans `DEMO/result/doc/test_plan.md`.
+Le plan de test a été créé dans `25-AI-vibe-coding-tests-e2e/result/doc/test_plan.md`.
 
 #### Résumé du Plan de Test
 
@@ -62,16 +62,16 @@ Le plan inclut également :
 
 **Rôle:** Développeur QA expérimenté avec Selenium/Python
 
-**Contexte:** À partir du document `DEMO/result/doc/test_plan.md` et du code source `DEMO/result/src/app`, création de suites de tests Selenium/Python exécutables.
+**Contexte:** À partir du document `25-AI-vibe-coding-tests-e2e/result/doc/test_plan.md` et du code source `25-AI-vibe-coding-tests-e2e/result/src/app`, création de suites de tests Selenium/Python exécutables.
 
 **Tâches:**
 
 #### Partie 1 : Installation
 - Installation de Selenium pour Python
-- Rapport d'installation `DEMO/result/doc/INSTALL_Selenium.md`
+- Rapport d'installation `25-AI-vibe-coding-tests-e2e/result/doc/INSTALL_Selenium.md`
 
 #### Partie 2 : Création des Tests
-- Créer des tests selenium dans `DEMO/result/src/test_selenium/`
+- Créer des tests selenium dans `25-AI-vibe-coding-tests-e2e/result/src/test_selenium/`
 - Nommage: `FEATURE_PRIORITY_ID` (ex: Users_Haute_TC-001-01)
 - Fonctionnalités requises:
   - Exécuter la suite complète
@@ -79,8 +79,8 @@ Le plan inclut également :
   - Exécuter par FEATURE
   - Exécuter par FEATURE/PRIORITY
   - Affichage console en temps réel
-  - Rapports dans `DEMO/result/src/test_selenium/reports/`
-  - Documentation d'utilisation `DEMO/result/doc/selenium_test_suite_usage.md`
+  - Rapports dans `25-AI-vibe-coding-tests-e2e/result/src/test_selenium/reports/`
+  - Documentation d'utilisation `25-AI-vibe-coding-tests-e2e/result/doc/selenium_test_suite_usage.md`
 
 ### 🤖 Réponse Assistant
 
@@ -93,8 +93,8 @@ Le plan inclut également :
 #### Fichiers Créés
 
 **Documentation :**
-- `DEMO/result/doc/INSTALL_Selenium.md` - Rapport d'installation
-- `DEMO/result/doc/selenium_test_suite_usage.md` - Guide d'utilisation complet
+- `25-AI-vibe-coding-tests-e2e/result/doc/INSTALL_Selenium.md` - Rapport d'installation
+- `25-AI-vibe-coding-tests-e2e/result/doc/selenium_test_suite_usage.md` - Guide d'utilisation complet
 
 **Tests Selenium :**
 
@@ -112,7 +112,7 @@ Le plan inclut également :
 #### Commandes d'Exécution
 
 ```bash
-cd DEMO/result/src/test_selenium
+cd 25-AI-vibe-coding-tests-e2e/result/src/test_selenium
 
 # Tous les tests
 python run_tests.py
@@ -140,20 +140,20 @@ python run_tests.py --headless
 
 #### Rapports
 
-Les rapports sont générés automatiquement dans `DEMO/result/src/test_selenium/reports/` avec le format :
+Les rapports sont générés automatiquement dans `25-AI-vibe-coding-tests-e2e/result/src/test_selenium/reports/` avec le format :
 - `{FEATURE}_{timestamp}.md` - Ex: `Users_20260218_143052.md`
 
 #### Prérequis avant exécution
 
 1. **Démarrer le backend :**
 ```bash
-cd DEMO/result/src/app/backend
+cd 25-AI-vibe-coding-tests-e2e/result/src/app/backend
 python app.py
 ```
 
 2. **Servir le frontend :**
 ```bash
-cd DEMO/result/src/app/frontend
+cd 25-AI-vibe-coding-tests-e2e/result/src/app/frontend
 python -m http.server 8080
 ```
 
@@ -162,7 +162,7 @@ python -m http.server 8080
 ## Structure des Fichiers Créés
 
 ```
-DEMO/result/
+25-AI-vibe-coding-tests-e2e/result/
 ├── doc/
 │   ├── test_plan.md                    # Plan de test complet
 │   ├── INSTALL_Selenium.md             # Rapport d'installation Selenium
@@ -189,7 +189,7 @@ DEMO/result/
 
 ### 🧑‍💻 Demande Utilisateur
 
-à partir de ce fichier README comme exemple, peux tu me créer le fichier DEMO/result/doc/00-README.md
+à partir de ce fichier README comme exemple, peux tu me créer le fichier 25-AI-vibe-coding-tests-e2e/result/doc/00-README.md
 
 ### 🤖 Réponse Assistant
 
@@ -212,7 +212,7 @@ Découvertes AI: Analyse rapide, cohérence, bonnes pratiques, gain de temps
 ### Issue: Import "flask_cors" could not be resolved from source
 
 **Context:**
-- File: `g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\backend\app.py`
+- File: `g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\backend\app.py`
 - Line 6: `from flask_cors import CORS`
 
 **Problem:**
@@ -241,7 +241,7 @@ pip install flask-cors
 **Code Reference:**
 
 ```python
-# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\backend\app.py
+# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\backend\app.py
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -262,7 +262,7 @@ After installing `flask-cors`, the import error should resolve. A VS Code window
 
 **User Query:**
 ```python
-# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\backend\app.py
+# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\backend\app.py
 flask_sqlalchemy
 ```
 
@@ -294,7 +294,7 @@ The error "Import 'flask_sqlalchemy' could not be resolved" indicates that the `
 - flask-sqlalchemy
 - pymysql
 
-**File Context:** `g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\backend\app.py`
+**File Context:** `g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\backend\app.py`
 
 ---
 
@@ -364,7 +364,7 @@ When executing `python run_tests.py --test-id TC-001-01`, the test started but a
 **Error on Ctrl+C:**
 ```
 Traceback (most recent call last):
-  File "G:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\test_selenium\run_tests.py", line 499, in <module>
+  File "G:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\test_selenium\run_tests.py", line 499, in <module>
     sys.exit(main())
   ...
 KeyboardInterrupt
@@ -385,19 +385,19 @@ Established proper startup procedure:
 
 **Terminal 1 - Backend Flask (Port 5000):**
 ```bash
-cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\backend"
+cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\backend"
 python app.py
 ```
 
 **Terminal 2 - Frontend (Port 8080):**
 ```bash
-cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\app\frontend"
+cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\app\frontend"
 python -m http.server 8080
 ```
 
 **Terminal 3 - Tests Selenium:**
 ```bash
-cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\test_selenium"
+cd "g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\test_selenium"
 python run_tests.py --test-id TC-001-01
 ```
 
@@ -426,7 +426,7 @@ Manual ChromeDriver installation:
 
 3. Modified `conftest.py`:
 ```python
-# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\test_selenium\conftest.py
+# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\test_selenium\conftest.py
 from selenium.webdriver.chrome.service import Service
 # from webdriver_manager.chrome import ChromeDriverManager  # ← Commented out
 
@@ -460,7 +460,7 @@ Tests failed when printing special characters (➤, émojis) to Windows console 
 Global UTF-8 encoding configuration in `conftest.py`:
 
 ```python
-# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\DEMO\result\src\test_selenium\conftest.py
+# filepath: g:\My Drive\dev\GitHub\portfolio-SQAAILab\25-AI-vibe-coding-tests-e2e\result\src\test_selenium\conftest.py
 import sys
 import os
 import io
