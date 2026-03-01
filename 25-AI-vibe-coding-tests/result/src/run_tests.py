@@ -50,7 +50,7 @@ def run_tests(test_type=None):
     report_path = reports_dir / report_name
     
     print("=" * 60)
-    print(f"🧪 Running {'all' if test_type is None else test_type} tests...")
+    print(f"[TEST] Running {'all' if test_type is None else test_type} tests...")
     print("=" * 60)
     print()
     
@@ -78,15 +78,20 @@ def run_tests(test_type=None):
     
     print()
     print("=" * 60)
-    print(f"📄 Report saved to: {report_path}")
+    print(f"[REPORT] Report saved to: {report_path}")
     print("=" * 60)
     
     # Display report content in console
     print()
-    print("📋 Report Content:")
+    print("[CONTENT] Report Content:")
     print("-" * 60)
     with open(report_path, 'r', encoding='utf-8') as f:
-        print(f.read())
+        content = f.read()
+        # Handle Windows console encoding
+        try:
+            print(content)
+        except UnicodeEncodeError:
+            print(content.encode('ascii', 'replace').decode('ascii'))
     
     return result.returncode
 
@@ -95,7 +100,7 @@ def generate_markdown_report(report_path, stdout, stderr, return_code, test_type
     """Generate a Markdown formatted test report."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     test_type_label = test_type.capitalize() if test_type else "All"
-    status = "✅ PASSED" if return_code == 0 else "❌ FAILED"
+    status = "PASSED" if return_code == 0 else "FAILED"
     
     # Parse test results from stdout
     lines = stdout.split('\n')
@@ -136,14 +141,14 @@ def generate_markdown_report(report_path, stdout, stderr, return_code, test_type
     
     for test in test_results:
         if 'PASSED' in test:
-            status_icon = "✅ PASSED"
+            status_icon = "PASSED"
         elif 'FAILED' in test:
-            status_icon = "❌ FAILED"
+            status_icon = "FAILED"
         else:
-            status_icon = "⚠️ ERROR"
+            status_icon = "ERROR"
         
         # Clean up test name
-        test_name = test.split(' ')[0].replace('::', ' → ')
+        test_name = test.split(' ')[0].replace('::', ' -> ')
         report_content += f"| `{test_name}` | {status_icon} |\n"
     
     report_content += f"""
