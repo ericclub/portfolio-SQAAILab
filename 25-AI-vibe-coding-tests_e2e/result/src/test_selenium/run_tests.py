@@ -262,7 +262,7 @@ def generate_markdown_report(report_path, stdout, stderr, return_code, duration,
 | 🔴 **Échoués** | {failed} |
 | 🟡 **Ignorés** | {skipped} |
 | ⚠️ **Erreurs** | {errors} |
-| **Taux de réussite** | {(passed/total*100):.1f}% |
+| **Taux de réussite** | {(passed/total*100) if total > 0 else 0:.1f}% |
 
 ---
 
