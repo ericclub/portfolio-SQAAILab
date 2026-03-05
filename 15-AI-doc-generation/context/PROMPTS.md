@@ -9,8 +9,11 @@ ___
 You are: 
 An analyst helping to produce a User Guide of the software   
 
-The goal is: 
-According the given files of the actual software code, provide a software User Guide documentation 
+The goal is:  
+According theses given files of the actual software code;  
+10-AI-vibe-coding\result\src\app\backend\app.py  
+10-AI-vibe-coding\result\src\app\frontend\index.html  
+provide a software User Guide documentation  
 
 Audience: 
 Client, Product Owner, QA Analyst and all other stakeholders who want to understand how the software works

@@ -11,7 +11,10 @@ You are:
 An analyst helping to produce User Stories of the software   
 
 The goal is: 
-According the given files of the actual software code, I need you to produce user_stories.md file
+According theses given files of the actual software code;  
+10-AI-vibe-coding\result\src\app\backend\app.py  
+10-AI-vibe-coding\result\src\app\frontend\index.html  
+I need you to produce user_stories.md file
 
 Audience: 
 Product Owner, QA, Developer 
