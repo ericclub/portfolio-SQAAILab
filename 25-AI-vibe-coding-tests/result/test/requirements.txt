@@ -1,0 +1,14 @@
+# Test dependencies for 25-AI-vibe-coding-tests
+pytest==8.3.4
+pytest-html==4.1.1
+pytest-cov==4.1.0
+requests==2.32.3
+
+# Application dependencies (from 10-AI-vibe-coding)
+Flask==3.1.2
+Flask-SQLAlchemy==3.1.1
+Flask-CORS==5.0.0
+PyMySQL==1.1.1
+python-dotenv==1.2.1
+Werkzeug==3.1.4
+cryptography==46.0.3

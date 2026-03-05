@@ -1,7 +1,5 @@
 **AI :** VSCode ClaudeOpus4.5       
-**Context files :** 
-user_stories.md
-10-AI-vibe-coding\result\src
+**Context files :** 10-AI-vibe-coding\result and 20-AI-QA-analysis-assistant\result
 **Starting Prompt :**   
 
 ```

@@ -19,8 +19,8 @@
   
 ## EACH DAYS Generic Tasks   
   
-[] Work with AI agents until having the right results  
-[] If needed Ask AI to save current chat by using this prompt    
+[x] Work with AI agents until having the right results  
+[x] If needed Ask AI to save current chat by using this prompt    
 ```  
 . Can you export this entire chat into [nn-AI-topic-name]/result/doc/chat_history.md    
 . Use Markdown format with clear sections, titles, and code blocks preserved.    
@@ -28,20 +28,20 @@
 ```  
 ## Topic Specific Tasks
   
-[] Regeneation of Unit and Integration test base on previous topic results instead of copy/paste theses previous results
-[] Have the same level of result base on the previous exploration of this topic (see main branch results before merging)
+[x] Regeneation of Unit and Integration test base on previous topic results instead of copy/paste theses previous results
+[x] Have the same level of result base on the previous exploration of this topic (see main branch results before merging)
   
 ## Results  
   
-[] AI Results should be placed in Result section  
-[] 25-README.md should be comleted/adjusted
-[] AI chats should be copy in /result/doc/chat_history.md
+[x] AI Results should be placed in Result section  
+[x] 25-README.md should be comleted/adjusted
+[x] AI chats should be copy in /result/doc/chat_history.md
   
 ## Review & Merge  
   
-[] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
-[] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
-[] DoD 
+[x] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
+[x] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
+[x] DoD 
 * All checkbox of this file are done 
 * Git Commit
 * Pull request + Review + Approve + Merge + delete branch 
