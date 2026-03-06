@@ -1,0 +1,7 @@
+# Selenium E2E Test Dependencies
+# Flask Blog Admin UI - Automated Testing
+
+selenium>=4.15.0
+pytest>=7.4.0
+pytest-html>=4.1.0
+webdriver-manager>=4.0.0

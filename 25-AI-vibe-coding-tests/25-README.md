@@ -2,17 +2,14 @@
   
 ### AI-Assisted  
   
-This section of the project focuses on applying AI techniques to **AI vibe coding**.  
+This section of the project focuses on applying AI techniques to **AI vibe coding focused on automated tests**.  
   
 ### Objectives  
   
-Because our software does not have an automated test suite  
-  
-As a QA expert automated test developer, using the user_stories.md file  
-I want to create automated integration and unit tests, but no end-to-end tests; we'll handle those later.  
-and I want a markdown test_guide.md to be generated that will explain how to run the tests, where are the results log etc.  
-So we will have a first automated tests suites covering the actual software behavior to be used and adjusted in the future  
-  
+The goal of this phase was to generate the unit and integration tests for the 'Flask Blog' lab application (10-AI-vibe-coding), which were proposed and approved in the previous analysis phase (20-AI-QA-analysis-assistant).  
+
+End-to-end testing will be addressed in a later phase.  
+
 ### Tools & Technologies  
   
 1. **AI Models:** Claude opus 4.5 (pro mode activated)  
@@ -20,8 +17,7 @@ So we will have a first automated tests suites covering the actual software beha
   
 ### How proceeded  
   
-1. I used as context the 'user_stories.md' document (see previous topic "AI-powered QA Analysis")  
-2. I put the software code also as context to be used to demonstrate this AI usage  
+1. I used as context 10-AI-vibe-coding\result and 20-AI-QA-analysis-assistant\result  
 3. I used a strong precise prompt using the RCTEFT format (Role, Context, Tasks, Example, Format, Tone)  
    See 25-AI-vibe-coding-test/context/PROMPTS.md  
 4. I used Claude Opus 4.5 (pro mode activated)  
@@ -32,9 +28,6 @@ So we will have a first automated tests suites covering the actual software beha
   
 Here's what the AI ​​produced for me:  
   
-* It analyzed my project to identify the technology to use.  (Pytest)  
-* It installed Pytest and all associated requirements according to the project requirements.  
-* **It tested and adjusted its installation.**  
 * It created the test suite structure as requested.  
 * It wrote all the optimal unit tests as expected.  
 * It wrote all the optimal integration tests as expected.  
@@ -79,11 +72,8 @@ Here's the time it took me with AI assistance:
   
 **My conclusion,**  
   
-* Manually = 3 to 5 days  
+* Manually = 3 to 5 agile pts
 * AI assisted & Manually Reviewed = 3 hours.  
   
 I truly believe that we will no longer be able to do without AI (in a positive way) for software testing.  
-AI will greatly help the industry to deliver high-quality software much faster and more easily.  
-  
-Please feel free to share your comments.  
-Eric.  
+AI will greatly help the industry to deliver high-quality software much faster and more easily.    
