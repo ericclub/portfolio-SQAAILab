@@ -1,264 +1,284 @@
-# Test Guide
+# Flask Blog API Test Guide
 
-This document explains how to set up, run, and interpret the automated tests for the Flask Blog API.
+This guide explains how to run the unit and integration tests for the Flask Blog API application.
 
 ## Table of Contents
 
-1. [Overview](#overview)
-2. [Prerequisites](#prerequisites)
+1. [Prerequisites](#prerequisites)
+2. [Project Structure](#project-structure)
 3. [Installation](#installation)
 4. [Running Tests](#running-tests)
-5. [Test Structure](#test-structure)
-6. [Test Results](#test-results)
-7. [Test Coverage](#test-coverage)
-
----
-
-## Overview
-
-This test suite implements **unit tests** and **integration tests** for the Flask Blog API based on the user stories defined in `user_stories.md`. The tests follow the **Test Pyramid Principle**:
-
-- **Unit tests**: Fast, isolated tests for validation, serialization, and business logic
-- **Integration tests**: Full HTTP request/response cycle with database operations
-
-> **Note**: End-to-end (E2E) tests are not included in this suite and will be handled separately.
+5. [Test Categories](#test-categories)
+6. [Test Reports](#test-reports)
+7. [Test Cases Coverage](#test-cases-coverage)
+8. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- pip (Python package manager)
+- Python 3.10 or higher
+- pip (Python package installer)
 - Virtual environment (recommended)
 
----
+## Project Structure
+
+```
+25-AI-vibe-coding-tests/
+└── result/
+    └── test/
+        ├── conftest.py           # Shared pytest fixtures
+        ├── pytest.ini            # Pytest configuration
+        ├── requirements.txt      # Test dependencies
+        ├── run_tests.py          # Test runner script
+        ├── unit/                 # Unit tests
+        │   ├── __init__.py
+        │   ├── test_user_validation.py
+        │   ├── test_post_validation.py
+        │   └── test_response_shapes.py
+        ├── integration/          # Integration tests
+        │   ├── __init__.py
+        │   ├── test_health.py
+        │   ├── test_users.py
+        │   ├── test_posts.py
+        │   ├── test_stats.py
+        │   ├── test_cors.py
+        │   └── test_error_handling.py
+        └── reports/              # Generated test reports
+```
 
 ## Installation
 
-### 1. Navigate to the test directory
+1. **Navigate to the test directory:**
 
-```bash
-cd 25-AI-vibe-coding-tests/result
-```
+   ```bash
+   cd 25-AI-vibe-coding-tests/result/test
+   ```
 
-### 2. Create a virtual environment (recommended)
+2. **Create and activate a virtual environment (recommended):**
 
-```bash
-python -m venv venv
-```
+   ```bash
+   # Windows
+   python -m venv venv
+   venv\Scripts\activate
 
-### 3. Activate the virtual environment
+   # Linux/macOS
+   python -m venv venv
+   source venv/bin/activate
+   ```
 
-**Windows:**
-```bash
-venv\Scripts\activate
-```
+3. **Install dependencies:**
 
-**macOS/Linux:**
-```bash
-source venv/bin/activate
-```
-
-### 4. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Running Tests
 
-### Run All Tests
+### Using the Test Runner Script
+
+The `run_tests.py` script provides a convenient way to run tests with various options:
 
 ```bash
+# Run ALL tests (unit + integration)
 python run_tests.py
-```
 
-Or using pytest directly:
-
-```bash
-pytest -v
-```
-
-### Run Only Unit Tests
-
-```bash
+# Run only UNIT tests
 python run_tests.py --unit
-```
+# or
+python run_tests.py -u
 
-Or using pytest directly:
-
-```bash
-pytest -v -m unit test/unit/
-```
-
-### Run Only Integration Tests
-
-```bash
+# Run only INTEGRATION tests
 python run_tests.py --integration
+# or
+python run_tests.py -i
+
+# Run with verbose output
+python run_tests.py --verbose
+# or
+python run_tests.py -v
+
+# Run without generating Markdown report
+python run_tests.py --no-report
 ```
 
-Or using pytest directly:
+### Using pytest Directly
+
+You can also use pytest directly for more control:
 
 ```bash
-pytest -v -m integration test/integration/
-```
+# Run all tests
+pytest unit integration -v
 
-### Additional Pytest Options
+# Run only unit tests
+pytest unit -v -m unit
 
-```bash
-# Run with detailed output
-pytest -v --tb=long
+# Run only integration tests
+pytest integration -v -m integration
+
+# Run tests for a specific feature (using markers)
+pytest -m users -v        # User-related tests
+pytest -m posts -v        # Post-related tests
+pytest -m stats -v        # Statistics tests
+pytest -m health -v       # Health check tests
 
 # Run a specific test file
-pytest test/unit/test_users_unit.py -v
+pytest integration/test_users.py -v
 
 # Run a specific test class
-pytest test/integration/test_users_integration.py::TestCreateUser -v
+pytest integration/test_users.py::TestCreateUser -v
 
-# Run a specific test function
-pytest test/unit/test_health_unit.py::TestHealthEndpointUnit::test_health_response_contains_status_key -v
-
-# Run with coverage report
-pytest --cov=. --cov-report=html
+# Run a specific test method
+pytest integration/test_users.py::TestCreateUser::test_create_user_with_valid_data -v
 ```
 
----
+## Test Categories
 
-## Test Structure
+### Unit Tests (`unit/`)
 
-```
-25-AI-vibe-coding-tests/result/
-├── conftest.py              # Pytest fixtures and configuration
-├── pytest.ini               # Pytest settings
-├── requirements.txt         # Test dependencies
-├── run_tests.py             # Test runner with Markdown report generation
-├── test_guide.md            # This documentation
-├── reports/                 # Generated test reports (Markdown)
-└── test/
-    ├── __init__.py
-    ├── unit/                # Unit tests
-    │   ├── __init__.py
-    │   ├── test_health_unit.py
-    │   ├── test_users_unit.py
-    │   ├── test_posts_unit.py
-    │   └── test_stats_unit.py
-    └── integration/         # Integration tests
-        ├── __init__.py
-        ├── test_health_integration.py
-        ├── test_users_integration.py
-        ├── test_posts_integration.py
-        ├── test_stats_integration.py
-        └── test_nfr_integration.py
-```
+Unit tests validate business logic without HTTP calls or database access:
 
----
+| Test File | Description |
+|-----------|-------------|
+| `test_user_validation.py` | User model serialization, password handling, validation logic |
+| `test_post_validation.py` | Post model serialization, default values, validation logic |
+| `test_response_shapes.py` | API response structure validation |
 
-## Test Results
+### Integration Tests (`integration/`)
 
-### Console Output
+Integration tests validate API endpoints with Flask test client and in-memory SQLite database:
 
-When running tests, results are displayed in the console with:
-- ✅ Green checkmarks for passed tests
-- ❌ Red X for failed tests
-- Summary of passed/failed/skipped tests
+| Test File | Description |
+|-----------|-------------|
+| `test_health.py` | Health endpoint (HLTH-01) |
+| `test_users.py` | User CRUD operations (USR-01 to USR-04) |
+| `test_posts.py` | Post CRUD operations (PST-01 to PST-06) |
+| `test_stats.py` | Statistics endpoint (STS-01) |
+| `test_cors.py` | CORS configuration (NFR-02) |
+| `test_error_handling.py` | Error handling and JSON responses (NFR-01, NFR-03) |
 
-### Markdown Reports
+### Test Markers
+
+Tests are tagged with markers for selective execution:
+
+- `@pytest.mark.unit` - Unit tests
+- `@pytest.mark.integration` - Integration tests
+- `@pytest.mark.health` - Health check tests
+- `@pytest.mark.users` - User management tests
+- `@pytest.mark.posts` - Post management tests
+- `@pytest.mark.stats` - Statistics tests
+
+## Test Reports
 
 Test reports are automatically generated in the `reports/` directory:
 
-| Report File | Description |
-|-------------|-------------|
-| `test_results_all_YYYYMMDD_HHMMSS.md` | Results from running all tests |
-| `test_results_unit_YYYYMMDD_HHMMSS.md` | Results from running unit tests only |
-| `test_results_integration_YYYYMMDD_HHMMSS.md` | Results from running integration tests only |
+### Report Locations
 
-Each report contains:
-- Timestamp and test type
-- Pass/Fail status summary
-- Individual test results table
-- Full console output
+```
+reports/
+├── test_results_all_YYYYMMDD_HHMMSS.md      # All tests report
+├── test_results_all_YYYYMMDD_HHMMSS.html    # HTML report
+├── test_results_unit_YYYYMMDD_HHMMSS.md     # Unit tests report
+├── test_results_unit_YYYYMMDD_HHMMSS.html   # HTML report
+├── test_results_integration_YYYYMMDD_HHMMSS.md   # Integration tests report
+└── test_results_integration_YYYYMMDD_HHMMSS.html # HTML report
+```
 
----
+### Markdown Report Contents
 
-## Test Coverage
+Each Markdown report includes:
 
-### Unit Tests
+- **Summary**: Test type, timestamp, overall status, total/passed/failed counts
+- **Test Configuration**: Framework and HTML report reference
+- **Console Output**: Full pytest output with test results
+- **Failed Tests Analysis**: Details on any failures (if applicable)
 
-| Test File | Coverage |
-|-----------|----------|
-| `test_health_unit.py` | HLTH-01 (response structure) |
-| `test_users_unit.py` | USR-01 to USR-04 (validation, serialization, password hashing) |
-| `test_posts_unit.py` | PST-01 to PST-03 (validation, serialization, defaults) |
-| `test_stats_unit.py` | STS-01 (response structure) |
+### Viewing Reports
 
-### Integration Tests
+- **Markdown**: Open `.md` files in any text editor or Markdown viewer
+- **HTML**: Open `.html` files in a web browser for interactive viewing
 
-| Test File | Coverage |
-|-----------|----------|
-| `test_health_integration.py` | HLTH-01 (HTTP contract) |
-| `test_users_integration.py` | USR-01 to USR-11 (full CRUD + cascade) |
-| `test_posts_integration.py` | PST-01 to PST-14 (full CRUD + filtering) |
-| `test_stats_integration.py` | STS-01 to STS-03 (data accuracy) |
-| `test_nfr_integration.py` | NFR-01, NFR-02 (JSON responses, CORS, HTTP codes) |
+## Test Cases Coverage
 
-### Test Cases Mapping
+### User Stories Coverage
 
-| User Story | Unit Tests | Integration Tests |
-|------------|------------|-------------------|
-| HLTH-01 | ✅ | ✅ |
-| USR-01 | ✅ | ✅ |
-| USR-02 | ✅ | ✅ |
-| USR-03 | - | ✅ |
-| USR-04 | - | ✅ |
-| PST-01 | ✅ | ✅ |
-| PST-02 | ✅ | ✅ |
-| PST-03 | ✅ | ✅ |
-| PST-04 | - | ✅ |
-| PST-05 | - | ✅ |
-| PST-06 | - | ✅ |
-| STS-01 | ✅ | ✅ |
-| NFR-01 | - | ✅ |
-| NFR-02 | - | ✅ |
+| Story ID | Description | Test Type | Test File |
+|----------|-------------|-----------|-----------|
+| HLTH-01 | Health check | Integration | `test_health.py` |
+| USR-01 | Create user | Both | `test_users.py`, `test_user_validation.py` |
+| USR-02 | List users | Integration | `test_users.py` |
+| USR-03 | View user by ID | Integration | `test_users.py` |
+| USR-04 | Delete user (cascade) | Integration | `test_users.py` |
+| PST-01 | Create post | Both | `test_posts.py`, `test_post_validation.py` |
+| PST-02 | List all posts | Integration | `test_posts.py` |
+| PST-03 | List published posts | Integration | `test_posts.py` |
+| PST-04 | View post by ID | Integration | `test_posts.py` |
+| PST-05 | Update post | Integration | `test_posts.py` |
+| PST-06 | Delete post | Integration | `test_posts.py` |
+| STS-01 | View statistics | Integration | `test_stats.py` |
+| NFR-01 | JSON responses | Integration | `test_error_handling.py` |
+| NFR-02 | CORS enabled | Integration | `test_cors.py` |
 
----
+### Test Cases Matrix
+
+| Test Case ID | Description | Test Method |
+|--------------|-------------|-------------|
+| TC-HLTH-01 | Health check returns OK | `test_health_check_returns_200` |
+| TC-USR-01 | Create user with valid data | `test_create_user_with_valid_data` |
+| TC-USR-02 | Reject missing fields | `test_create_user_missing_*` |
+| TC-USR-03 | Reject duplicate username | `test_create_user_duplicate_username` |
+| TC-USR-04 | Reject duplicate email | `test_create_user_duplicate_email` |
+| TC-USR-05 | List users returns array | `test_list_users_returns_array` |
+| TC-USR-06 | List users empty | `test_list_users_empty_database` |
+| TC-USR-07 | Get user by valid ID | `test_get_user_by_valid_id` |
+| TC-USR-08 | Get user not found | `test_get_user_not_found` |
+| TC-USR-09 | Delete user success | `test_delete_user_success` |
+| TC-USR-10 | Delete user cascades posts | `test_delete_user_cascade_posts` |
+| TC-USR-11 | Delete user not found | `test_delete_user_not_found` |
+| TC-PST-01 | Create post valid data | `test_create_post_with_valid_data` |
+| TC-PST-02 | Create post missing fields | `test_create_post_missing_*` |
+| TC-PST-03 | Create post user not found | `test_create_post_user_not_found` |
+| TC-PST-04 | List posts ordered | `test_list_posts_ordered_by_created_at_desc` |
+| TC-PST-05 | List posts empty | `test_list_posts_empty_database` |
+| TC-PST-06 | List published only | `test_list_published_posts_only` |
+| TC-PST-07 | List published empty | `test_list_published_posts_empty` |
+| TC-PST-08 | Get post by valid ID | `test_get_post_by_valid_id` |
+| TC-PST-09 | Get post not found | `test_get_post_not_found` |
+| TC-PST-10 | Update post publish | `test_update_post_publish` |
+| TC-PST-11 | Update post fields | `test_update_post_title_and_content` |
+| TC-PST-12 | Update post not found | `test_update_post_not_found` |
+| TC-PST-13 | Delete post success | `test_delete_post_success` |
+| TC-PST-14 | Delete post not found | `test_delete_post_not_found` |
+| TC-STS-01 | Stats returns zeros | `test_stats_empty_database` |
+| TC-STS-02 | Stats reflect data | `test_stats_reflect_created_data` |
+| TC-STS-03 | Stats cascade impact | `test_stats_cascade_impact` |
 
 ## Troubleshooting
 
 ### Common Issues
 
-**1. ModuleNotFoundError: No module named 'app'**
+1. **ModuleNotFoundError: No module named 'app'**
+   
+   Ensure you're running tests from the correct directory and the source path is configured in `conftest.py`.
 
-Ensure you're running tests from the `result` directory:
-```bash
-cd 25-AI-vibe-coding-tests/result
-pytest -v
-```
+2. **Database connection errors**
+   
+   Tests use SQLite in-memory database. No MySQL connection is required for testing.
 
-**2. Database connection errors**
+3. **Import errors for Flask dependencies**
+   
+   Install all requirements: `pip install -r requirements.txt`
 
-Tests use an in-memory SQLite database, so no external database is required. If you see MySQL errors, ensure the test fixtures are being used correctly.
+4. **pytest not found**
+   
+   Ensure pytest is installed: `pip install pytest`
 
-**3. Import errors**
+### Getting Help
 
-Verify all dependencies are installed:
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Contributing
-
-When adding new tests:
-
-1. Place unit tests in `test/unit/`
-2. Place integration tests in `test/integration/`
-3. Use appropriate markers (`@pytest.mark.unit` or `@pytest.mark.integration`)
-4. Follow the naming convention `test_<feature>_<type>.py`
-5. Document test case coverage in this guide
+- Review the test configuration in `pytest.ini`
+- Check the fixtures in `conftest.py`
+- Examine individual test files for specific test implementations
 
 ---
 
-*Generated for the SQAAILab Flask Blog API Test Suite*
+*Last updated: March 2026*

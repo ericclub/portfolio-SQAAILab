@@ -7,7 +7,26 @@
 
 This project explores how **Artificial Intelligence (AI)** can enhance **Software Quality Assurance (SQA)** practices.
 
-Each subfolder focuses on a specific AI-driven approach. Please refer to the corresponding **result/doc/nn-README.md** file in each topic directory for detailed explanations, examples, and workflows.
+Here is the basic structure of the project
+```
+portfolio-SQAAILab          Laboratory Root
+│
+├ nn-AI-topic-name          AI topic Root
+│   │
+│   ├ context               Information provided to AI to generate the result
+│   ├ result
+│   │   ├ doc               AI-generated documentation regarding the result
+│   │   ├ src               AI-generated code regarding the result
+│   │
+│   ├ nn-README.md          General information about this topic of exploration
+│   │
+│
+├ README.md                 General information about this portfolio-SQAAILab project
+│
+```
+
+Each subfolder focuses on a specific AI-driven approach.  
+Please refer to each **nn-README.md** file for detailed explanations, examples, and workflows.
 
 🚀 **Vision:**   
 The topics listed below represent the current areas of exploration. This repository is designed as a living laboratory for AI in Software Quality Assurance and will continuously evolve to experiment with, validate, and document emerging AI-driven techniques, tools, and paradigms as the field matures.

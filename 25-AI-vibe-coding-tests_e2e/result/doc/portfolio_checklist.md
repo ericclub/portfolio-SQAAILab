@@ -1,16 +1,16 @@
-# My Standard Portfolio Worflow Todo List   
+# My Standard Portfolio Workflow Todo List   
   
 ## Git Branch & Working Folder   
   
 [X] Create a new branch from main to my topic naming convention   
 [X] Copy   /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to /PORTFOLIO-SQAAILAB  
-[X] Rename /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to his real name by follwing my naming convention 
+[X] Rename /PORTFOLIO-SQAAILAB/nn-AI-areas-explored to its real name by following my naming convention 
   
 ## README.md  (Start)  
   
-[AI] README.md - Subject Area Name  
-[AI] README.md - AI Specific Area Name  
-[AI] README.md - Objectives    
+[x] README.md - Subject Area Name  
+[x] README.md - AI Specific Area Name  
+[x] README.md - Objectives    
   
 ## Context   
   
@@ -28,24 +28,21 @@
 ```  
 ## Topic Specific Tasks
   
-[AI] New Web Application Generated 
-[AI] Application Installation ducumentation generated    
-[AI] Test Plan Created    
-[AI] Python, Pytest, Selenium Installed   
-[AI] Selenium test suites generated based on Test Plan and Application source    
-[AI] Selenium Installation Documentation generated      
+[X] Python, Pytest, Selenium Installed   
+[X] Selenium test suites generated based on Test Plan and Application source    
+[X] Test guide Documentation generated      
 [X] Validation/Review of all documentation produced    
 [X] Validation of all Application and tools installed   
 [X] Validation of Test suites usages    
    
 ## Results  
   
-[AI] 00-README.md should be comleted based on nn-README.md format  
-[AI] AI chats should be copy in /result/doc/chat_history.md
+[X] 00-README.md should be completed based on nn-README.md format  
+[X] AI chats should be copy in /result/doc/chat_history.md
   
 ## Review & Merge  
   
-[AI] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
+[X] Use AI to revise all spelling in doc - correct the spelling in my [*.md] files   
 [X] Adjust PORTFOLIO-SQAAILAB/README.md for the new topic done   
 [X] Completed 
 * All checkbox of this file are done 
