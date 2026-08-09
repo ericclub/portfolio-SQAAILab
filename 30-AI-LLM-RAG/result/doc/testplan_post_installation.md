@@ -1,3 +1,230 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+# Tests post-installation
+
+Validation et scénarios de test pour LLM local + RAG
+
+------------------------------------------------------------------------
+
+# Table des matières
+
+1.  Objectif
+2.  Cas de test : Aucun modèle téléchargé
+3.  Cas de test : Modèle téléchargé et chargé
+4.  Cas de test : La mémoire GPU est utilisée
+5.  Cas de test : La réponse utilise uniquement les documents intégrés
+6.  Cas de test : Réponse complète
+7.  Cas de test : Réponse partielle
+8.  Cas de test : Information non disponible dans les documents locaux
+9.  Liste de contrôle de validation finale
+10. Résultat
+
+------------------------------------------------------------------------
+
+# 1. Objectif
+
+Ce document décrit comment tester et valider différents états du système
+et comportements de réponse lors de l'utilisation de :
+
+-   LM Studio (PC Gaming)
+-   AnythingLLM (Portable)
+-   RAG local avec documents intégrés
+
+------------------------------------------------------------------------
+
+# 2. Cas de test : Aucun modèle téléchargé
+
+## Scénario
+
+Aucun modèle LLM n'a été téléchargé ou chargé dans LM Studio.
+
+## Comment tester
+
+1.  Arrêter le serveur LM Studio.
+2.  Décharger tout modèle actif.
+3.  Démarrer le serveur local sans charger de modèle.
+4.  Envoyer un prompt depuis AnythingLLM.
+
+## Résultat attendu
+
+-   L'API peut répondre mais la génération échoue.
+-   Erreur telle que :
+    -   "Model not found"
+    -   "No model loaded"
+    -   Réponse de complétion vide ou échouée.
+
+## Critères de validation
+
+Le système doit clairement indiquer que le modèle n'est pas chargé.
+
+------------------------------------------------------------------------
+
+# 3. Cas de test : Modèle téléchargé et chargé
+
+## Scénario
+
+Mistral 8B Instruct est téléchargé et chargé dans LM Studio.
+
+## Comment tester
+
+1.  Charger le modèle dans LM Studio.
+2.  Confirmer qu'il apparaît via : curl.exe
+    http://`<GamingPC_IP>`{=html}:1234/v1/models
+3.  Depuis AnythingLLM, envoyer le prompt : "What do you know about SQAAILab?"
+
+## Résultat attendu
+
+Réponse : réponse mentionnant quelque chose à propos de SQAAILab qui n'est pas pertinent pour ce laboratoire. Voir Hallucination.png 
+
+## Critères de validation
+
+-   Le modèle génère une sortie cohérente en l'absence de document réellement intégré et sans prompt spécifique demandant d'utiliser uniquement le document intégré.
+-   Aucune erreur API.
+-   Temps de réponse cohérent avec l'inférence GPU.
+
+------------------------------------------------------------------------
+
+# 4. Cas de test : La mémoire GPU est utilisée
+
+## Scénario
+
+S'assurer que l'inférence utilise le GPU (RTX 3060) et non le CPU.
+
+## Comment tester
+
+Gestionnaire des tâches -> Performance -> GPU 
+Envoyer un prompt depuis AnythingLLM
+
+Attendu : - L'utilisation du calcul GPU augmente. - La mémoire GPU dédiée
+augmente. Voir gpu.png
+
+## Critères de validation
+
+-   Consommation de mémoire GPU visible.
+-   Inférence plus rapide qu'une exécution CPU uniquement.
+
+------------------------------------------------------------------------
+
+# 5. Cas de test : La réponse utilise uniquement les documents intégrés
+
+## Scénario
+
+S'assurer que les réponses RAG proviennent strictement des documents indexés.
+
+## Comment tester
+Dans AnythingLLM
+1. Créer un espace de travail nommé "MyWorkspace"
+2. Configurer un prompt système comme .. voir system_prompt.md 
+2. Intégrer des documents .. ./context/doc/AnythingLLM_embedded_documents
+3. Demander : "What do you know about SQAAILab? is the project code name?"
+
+## Résultat attendu
+
+La réponse fait référence à des informations contenues dans ./context/doc/AnythingLLM_embedded_documents qui sont pertinentes pour ce laboratoire.
+
+Puis demander : "What color is the sky?"
+
+## Résultat attendu
+
+Le système doit répondre : "I cannot find this information in the provided
+documents."
+
+## Critères de validation
+
+Aucune réponse hallucinée.
+
+------------------------------------------------------------------------
+
+# 6. Cas de test : Réponse complète
+
+## Scénario
+
+Le document contient une réponse détaillée complète.
+
+## Comment tester
+
+1.  Ajouter un document avec une explication à plusieurs points.
+2.  Poser une question de synthèse large.
+
+## Résultat attendu
+
+La réponse inclut : - Tous les points clés - Une réponse structurée - Aucune
+section manquante
+
+## Critères de validation
+
+La réponse couvre l'intégralité de la portée de la section du document.
+
+------------------------------------------------------------------------
+
+# 7. Cas de test : Réponse partielle
+
+## Scénario
+
+Le document ne contient qu'une partie de l'information demandée.
+
+## Comment tester
+
+1.  Ajouter un document contenant des données limitées.
+2.  Poser une question plus large.
+
+## Résultat attendu
+
+La réponse inclut uniquement les données connues. Le système ne doit pas inventer de
+détails manquants.
+
+## Critères de validation
+
+La réponse se limite à l'information disponible.
+
+------------------------------------------------------------------------
+
+# 8. Cas de test : Information non disponible dans les documents locaux
+
+## Scénario
+
+L'utilisateur pose une question en dehors des connaissances indexées.
+
+## Comment tester
+
+Demander : "What year was the company founded?" (si absent des documents)
+
+## Résultat attendu
+
+Le système doit répondre : - "The information is not available in the
+provided documents." - Ou une réponse ancrée similaire.
+
+## Critères de validation
+
+-   Aucune hallucination
+-   Déclaration de limitation claire
+-   Aucun fait fabriqué
+
+------------------------------------------------------------------------
+
+# 9. Liste de contrôle de validation finale
+
+✔ Modèle correctement chargé
+✔ Mémoire GPU utilisée
+✔ API accessible
+✔ Embeddings fonctionnels
+✔ RAG récupérant les bons chunks
+✔ Aucune hallucination
+✔ Gestion correcte des données manquantes
+
+------------------------------------------------------------------------
+
+# 10. Résultat
+
+Si tous les tests réussissent, l'environnement LLM local + RAG est correctement
+configuré et validé.
+
+---
+
+## 🇬🇧 English
+
 # Post Installation Tests
 
 Local LLM + RAG Validation & Test Scenarios

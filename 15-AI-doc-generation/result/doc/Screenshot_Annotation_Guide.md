@@ -1,3 +1,42 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+# Guide des maquettes et annotations
+
+> Les maquettes doivent être capturées depuis l'interface d'administration.
+
+## Maquette 1 – Accueil / Statistiques
+Annotations :
+1. Les cartes de statistiques affichent des données en direct
+2. Le bouton Actualiser recharge les métriques
+
+---
+
+## Maquette 2 – Gestion des utilisateurs
+Annotations :
+1. Formulaire de création d'utilisateur
+2. Liste des utilisateurs
+3. Action de suppression
+
+---
+
+## Maquette 3 – Gestion des articles
+Annotations :
+1. Formulaire de création d'article
+2. Sélection de l'auteur
+3. Statut Brouillon vs Publié
+4. Liste des articles
+
+---
+
+Astuce :
+Utilisez des rappels numérotés lors des présentations aux clients.
+
+---
+
+## 🇬🇧 English
+
 
 # Mock & Annotation Guide
 

@@ -1,3 +1,123 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+# Flask Blog Platform – Guide utilisateur (édition non technique)
+
+## Table des matières
+1. Introduction
+2. Ce que fait cette application
+3. Comment l'application est organisée
+4. Démarrage
+5. Utilisation de l'application
+   - Tableau de bord des statistiques
+   - Gestion des utilisateurs
+   - Gestion des articles
+6. Scénarios d'utilisation typiques
+7. Données et sécurité
+8. Bon à savoir
+9. Résumé
+
+---
+
+## 1. Introduction
+Ce guide explique **comment utiliser la Flask Blog Platform** en termes clairs et simples.  
+Il est destiné aux **clients, product owners, managers et parties prenantes non techniques**.
+
+Aucune connaissance en programmation n'est requise pour comprendre ou utiliser cette application.
+
+---
+
+## 2. Ce que fait cette application
+L'application est un **système simple de gestion de blog** doté d'une interface d'administration.
+
+Avec elle, vous pouvez :
+- Créer et gérer des utilisateurs
+- Créer des articles de blog et les attribuer à des utilisateurs
+- Publier ou conserver des articles en brouillon
+- Consulter les statistiques globales de la plateforme
+
+---
+
+## 3. Comment l'application est organisée
+L'application comporte **deux parties principales** :
+- Une interface d'administration web
+- Un système en arrière-plan qui stocke les informations de façon sécurisée
+
+Vous n'interagissez qu'avec l'**interface web**.
+
+---
+
+## 4. Démarrage
+1. Assurez-vous que le système est en cours d'exécution
+2. Ouvrez la page d'administration dans votre navigateur
+3. Utilisez les onglets en haut pour naviguer
+
+---
+
+## 5. Utilisation de l'application
+
+### 📊 Tableau de bord des statistiques
+Affiche :
+- Le nombre d'utilisateurs
+- Le nombre d'articles
+- Le nombre d'articles publiés
+
+Utilisé pour comprendre rapidement l'activité de la plateforme.
+
+---
+
+### 👥 Gestion des utilisateurs
+Permet de :
+- Ajouter de nouveaux utilisateurs
+- Voir tous les utilisateurs
+- Supprimer des utilisateurs
+
+Supprimer un utilisateur supprime aussi ses articles.
+
+---
+
+### 📝 Gestion des articles
+Permet de :
+- Créer des articles
+- Choisir un auteur
+- Publier ou conserver en brouillon
+- Supprimer des articles
+
+---
+
+## 6. Scénarios d'utilisation typiques
+- Créer des utilisateurs → créer des articles → publier
+- Rédiger du contenu en brouillon → réviser → publier
+- Nettoyer les anciens utilisateurs et articles
+
+---
+
+## 7. Données et sécurité
+- Les mots de passe sont protégés
+- Les données sont enregistrées automatiquement
+- Aucun système de connexion dans cette version
+
+---
+
+## 8. Bon à savoir
+- Les utilisateurs doivent exister avant les articles
+- Les statistiques aident à vérifier les actions
+- Peut être étendu ultérieurement
+
+---
+
+## 9. Résumé
+Une plateforme simple et facile à utiliser pour gérer le contenu d'un blog.
+
+---
+
+**Fin du guide utilisateur (édition non technique)**
+
+---
+
+## 🇬🇧 English
+
 
 # Flask Blog Platform – User Guide (Non-Technical Edition)
 

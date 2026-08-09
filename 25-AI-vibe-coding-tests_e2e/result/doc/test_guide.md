@@ -1,3 +1,369 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+# Guide des tests E2E Selenium
+
+## Aperçu
+
+Cette suite de tests fournit des tests automatisés de bout en bout (E2E) pour l'interface d'administration du Flask Blog Admin UI à l'aide de Selenium WebDriver avec Python. Les tests suivent le patron **Page Object Model** pour en faciliter la maintenance et utilisent **pytest** comme framework de test.
+
+## Cas de test
+
+| ID de test | Story | Description |
+|---------|-------|-------------|
+| TC-E2E-01 | E2E-01 | L'UI se charge et affiche les statistiques (test de fumée) |
+| TC-E2E-02 | E2E-01 | Le rafraîchissement des stats met à jour les valeurs affichées |
+| TC-E2E-03 | E2E-02 | Flux de création d'un utilisateur → création d'un post en brouillon |
+| TC-E2E-04 | E2E-02 | Variante de création d'un post publié |
+
+Ces tests couvrent les user stories E2E critiques issues de `20-AI-QA-analysis-assistant/result/doc/user_stories.md`.
+
+---
+
+## Prérequis
+
+### 1. Exigences logicielles
+
+- **Python 3.8+** installé
+- **Google Chrome** installé (dernière version recommandée)
+- **Flask Blog API** en cours d'exécution sur `http://localhost:5000`
+
+### 2. Configuration de l'application
+
+Avant d'exécuter les tests, assurez-vous que le Flask Blog API est bien lancé :
+
+```bash
+# Se déplacer dans le répertoire de l'application
+cd 10-AI-vibe-coding\result\src\app\backend
+
+# Activer l'environnement virtuel (si utilisé)
+..\..\.venv\Scripts\activate
+
+# Lancer l'application
+python app.py
+```
+
+L'application devrait être accessible sur `http://localhost:5000`.
+
+---
+
+## Installation
+
+### 1. Se déplacer dans le répertoire des tests
+
+```bash
+cd 25-AI-vibe-coding-tests_e2e\result\selenium
+```
+
+### 2. Créer et activer un environnement virtuel (recommandé)
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 3. Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+Ceci installe :
+- `selenium` - Automatisation de navigateur
+- `pytest` - Framework de test
+- `pytest-html` - Génération de rapport HTML
+- `webdriver-manager` - Gestion automatique de ChromeDriver
+
+---
+
+## Exécution des tests
+
+### Utilisation de base
+
+```bash
+# Exécuter tous les tests avec navigateur visible (par défaut)
+python run_tests.py
+
+# Exécuter tous les tests en mode headless (sans fenêtre de navigateur)
+python run_tests.py --headless
+```
+
+### Filtrage des tests
+
+```bash
+# Exécuter uniquement les tests de fumée
+python run_tests.py --smoke
+
+# Exécuter uniquement les tests de l'onglet statistiques
+python run_tests.py --statistics
+
+# Exécuter uniquement les tests liés aux utilisateurs
+python run_tests.py --users
+
+# Exécuter uniquement les tests liés aux posts
+python run_tests.py --posts
+```
+
+### Options supplémentaires
+
+```bash
+# Exécuter avec sortie détaillée (verbose)
+python run_tests.py --verbose
+
+# Ignorer la génération du rapport Markdown
+python run_tests.py --no-report
+
+# Utiliser une URL de base différente
+python run_tests.py --base-url http://localhost:8080
+
+# Combiner les options
+python run_tests.py --headless --smoke --verbose
+```
+
+### Utilisation directe de pytest
+
+```bash
+# Exécuter tous les tests
+pytest tests/ -v
+
+# Exécuter en mode headless
+pytest tests/ -v --headless
+
+# Exécuter un fichier de test spécifique
+pytest tests/test_statistics.py -v
+
+# Exécuter par marqueur
+pytest tests/ -v -m smoke
+
+# Exécuter un test spécifique
+pytest tests/test_statistics.py::TestStatisticsDisplay::test_ui_loads_and_shows_stats -v
+```
+
+---
+
+## Rapports de test
+
+### Emplacement des rapports
+
+Tous les rapports sont enregistrés dans le répertoire `reports/` :
+
+```
+selenium/
+└── reports/
+    ├── test_results_e2e_20260305_160000.html    # Rapport HTML
+    ├── test_results_e2e_20260305_160000.md      # Rapport Markdown
+    └── screenshots/                              # Captures d'écran en cas d'échec
+        └── test_name_timestamp.png
+```
+
+### Convention de nommage des rapports
+
+- Format : `test_results_e2e_{YYYYMMDD}_{HHMMSS}.{ext}`
+- Exemple : `test_results_e2e_20260305_160000.html`
+
+### Rapport HTML
+
+Le rapport HTML fournit :
+- Statistiques résumées (réussis/échoués/ignorés)
+- Durée des tests
+- Résultats détaillés pour chaque test
+- Messages d'erreur et traces de pile
+
+À ouvrir dans un navigateur web pour une meilleure expérience de visualisation.
+
+### Rapport Markdown
+
+Le rapport Markdown comprend :
+- Tableau résumé avec les métriques clés
+- Tableau du statut des cas de test
+- Sortie console complète
+- Analyse des tests échoués (le cas échéant)
+- Informations sur la couverture de test
+
+---
+
+## Structure du projet
+
+```
+selenium/
+├── conftest.py           # Fixtures pytest (driver, base_url, données de test)
+├── pytest.ini            # Configuration pytest et marqueurs
+├── requirements.txt      # Dépendances Python
+├── run_tests.py          # Lanceur de test en ligne de commande avec génération de rapport
+├── test_guide.md         # Cette documentation
+├── pages/                # Classes du Page Object Model
+│   ├── __init__.py
+│   ├── base_page.py      # Classe de base avec méthodes communes
+│   ├── statistics_page.py # Interactions avec l'onglet statistiques
+│   ├── users_page.py     # Interactions avec l'onglet utilisateurs
+│   └── posts_page.py     # Interactions avec l'onglet posts
+├── tests/                # Modules de test
+│   ├── __init__.py
+│   ├── test_statistics.py    # TC-E2E-01, TC-E2E-02
+│   └── test_user_post_flow.py # TC-E2E-03, TC-E2E-04
+└── reports/              # Rapports générés (créés à l'exécution)
+    ├── *.html
+    ├── *.md
+    └── screenshots/
+```
+
+---
+
+## Configuration
+
+### Options du navigateur
+
+Les tests utilisent le navigateur Chrome par défaut. Options disponibles :
+
+| Option | Description | Par défaut |
+|--------|-------------|---------|
+| `--headless` | Exécute sans fenêtre de navigateur visible | `False` |
+| `--window-size` | Dimensions de la fenêtre du navigateur | `1920x1080` |
+| Attente implicite | Temps d'attente par défaut pour les éléments | `10s` |
+
+### URL de base
+
+Par défaut : `http://localhost:5000`
+
+À surcharger avec : `--base-url http://your-server:port`
+
+### Marqueurs pytest
+
+Marqueurs disponibles pour le filtrage des tests :
+
+| Marqueur | Description |
+|--------|-------------|
+| `smoke` | Tests de fumée pour les fonctionnalités de base |
+| `e2e` | Tests de navigateur de bout en bout |
+| `statistics` | Tests de l'onglet statistiques |
+| `users` | Tests de gestion des utilisateurs |
+| `posts` | Tests de gestion des posts |
+
+---
+
+## Dépannage
+
+### Problèmes courants
+
+#### 1. Erreur « Connection refused »
+
+**Problème** : Les tests échouent avec une connexion refusée sur localhost:5000
+
+**Solution** : Assurez-vous que le Flask Blog API est en cours d'exécution :
+```bash
+cd 10-AI-vibe-coding\result\src\app\backend
+python app.py
+```
+
+#### 2. Incompatibilité de version de ChromeDriver
+
+**Problème** : « This version of ChromeDriver only supports Chrome version XX »
+
+**Solution** : Le package `webdriver-manager` gère automatiquement ce problème. Si le problème persiste :
+```bash
+pip install --upgrade webdriver-manager
+```
+
+#### 3. Éléments introuvables
+
+**Problème** : Les tests échouent avec « element not found » ou des erreurs de délai d'attente (timeout)
+
+**Causes possibles** :
+- Page pas complètement chargée (augmenter les temps d'attente)
+- Structure de l'UI modifiée (mettre à jour les sélecteurs des page objects)
+- Erreur applicative empêchant le rendu de la page
+
+**Solution** : Vérifiez que l'application fonctionne correctement lors d'une session manuelle dans le navigateur.
+
+#### 4. Les tests réussissent en local mais échouent en CI
+
+**Problème** : Les tests fonctionnent sur la machine locale mais échouent en CI/CD
+
+**Solution** : Assurez-vous que l'environnement CI dispose de :
+- Chrome installé
+- Le flag `--headless` utilisé
+- Des temps d'attente suffisants pour les environnements plus lents
+- L'application en cours d'exécution et accessible
+
+### Capture d'écran en cas d'échec
+
+Lorsqu'un test échoue, une capture d'écran est automatiquement prise et enregistrée dans :
+```
+reports/screenshots/test_name_timestamp.png
+```
+
+---
+
+## Bonnes pratiques
+
+### Pour les développeurs
+
+1. **Garder les tests indépendants** : Chaque test doit pouvoir s'exécuter de manière isolée
+2. **Utiliser des données de test uniques** : Générer des noms d'utilisateur/e-mails uniques à chaque exécution de test
+3. **Nettoyer les données de test** : Envisager des stratégies de nettoyage pour l'état de la base de données
+4. **Mettre à jour les page objects** : Lorsque l'UI change, mettre à jour les sélecteurs dans les classes de page
+5. **Exécuter en headless en CI** : Utiliser `--headless` pour les pipelines automatisés
+
+### Pour les ingénieurs QA
+
+1. **Exécuter d'abord les tests de fumée** : Utiliser `--smoke` pour une validation rapide
+2. **Vérifier les rapports** : Examiner les rapports HTML/Markdown après chaque exécution
+3. **Vérifier les prérequis** : S'assurer que l'application est lancée avant l'exécution des tests
+4. **Utiliser le mode visible pour le débogage** : Omettre `--headless` pour observer l'exécution des tests
+
+---
+
+## Couverture des user stories
+
+### E2E-01 : L'UI d'administration se charge et affiche des statistiques en direct
+
+**Critères d'acceptation** :
+- L'UI se charge et affiche les statistiques provenant de l'API ✅
+- Le rafraîchissement met à jour les statistiques affichées ✅
+
+**Tests** :
+- `test_ui_loads_and_shows_stats` (TC-E2E-01)
+- `test_refresh_updates_stats` (TC-E2E-02)
+
+### E2E-02 : L'administrateur peut créer un utilisateur puis créer un post via l'UI
+
+**Critères d'acceptation** :
+- Créer un utilisateur via l'UI et le voir apparaître dans la liste ✅
+- Créer un post pour le nouvel utilisateur via l'UI et le voir apparaître dans la liste ✅
+- Le badge « brouillon » est affiché pour les posts en brouillon ✅
+- Le badge « publié » est affiché pour les posts publiés ✅
+
+**Tests** :
+- `test_create_user_and_draft_post` (TC-E2E-03)
+- `test_create_published_post` (TC-E2E-04)
+
+---
+
+## Référence rapide
+
+```bash
+# Démarrage rapide (après installation)
+python run_tests.py
+
+# Mode headless pour CI/CD
+python run_tests.py --headless
+
+# Tests de fumée uniquement
+python run_tests.py --smoke --headless
+
+# Consulter les résultats
+# Ouvrir reports/test_results_e2e_*.html dans un navigateur
+```
+
+---
+
+*Dernière mise à jour : mars 2026*
+
+---
+
+## 🇬🇧 English
+
 # E2E Selenium Test Guide
 
 ## Overview

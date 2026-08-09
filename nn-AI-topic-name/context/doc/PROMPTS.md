@@ -1,3 +1,210 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+___
+**IA :**      
+**Fichiers de contexte :**      
+**Prompt de démarrage :**       
+
+------ Meilleur prompt générique RCTFET 
+
+[Rôle]
+...
+[Contexte]
+...
+[Tâches]
+...
+[Format]
+...
+[Exemple]
+...
+[Ton]
+...
+
+
+------ Meilleur prompt Mistral 
+
+[Contexte]         (Poser le décor)
+
+Vous êtes :             (Vous êtes un expert en marketing digital.)
+L'objectif :            (M'aider à concevoir une stratégie de réseaux sociaux pour une startup.)
+Audience :              (Public cible : les milléniaux intéressés par le développement durable.)
+
+[Tâche]            (Être précis)
+
+Je veux :              (Générer 3 idées de publications avec légendes et hashtags.)
+Format :              (Les lister dans un tableau avec des colonnes pour la plateforme, la légende et les hashtags.)
+
+[Contraintes]     (Fixer des limites)
+
+Ton :                (Amical, professionnel et motivant.)
+Longueur :              (Les légendes doivent faire moins de 150 caractères.)
+À éviter :               (Pas de jargon ni d'argot.)
+
+[Exemples]        (Si utile)
+
+Bons/mauvais exemples :   (Voici une publication que j'ai aimée..)
+
+[Résultat]          (Clarifier la livraison)
+
+Doit ressembler à :    (Retourner sous forme de tableau markdown.)
+Éléments supplémentaires :          (Inclure une brève justification pour chaque idée.)
+
+------ Meilleur prompt ChatGPT 
+
+Tu es un(e) [RÔLE].
+
+Ta tâche est de [OBJECTIF].
+
+Contexte :
+- Contexte général :
+- Contraintes :
+- Audience :
+
+Entrée :
+[DONNÉES ou "aucune"]
+
+Format de sortie :
+- Structure :
+- Longueur :
+- Langue :
+
+Exigences :
+- Niveau de précision :
+- Style :
+- Ton :
+
+Optionnel :
+- Exemple :
+- Étapes de validation avant la réponse finale
+
+
+------ Meilleur prompt Gemini 
+
+<system_instruction>
+  Tu es un(e) expert(e) en [Rôle/Persona]. Ton objectif est de [Objectif principal].
+  Suis strictement la logique définie dans la section <workflow>.
+</system_instruction>
+
+<context>
+  <background>
+    [Fournir ici le contexte général ou l'historique]
+  </background>
+  <constraints>
+    [Lister ce que l'IA NE DOIT PAS faire ou les limitations spécifiques]
+  </constraints>
+</context>
+
+<task_details>
+  <workflow>
+    1. D'abord, analyse les <source_data>.
+    2. Ensuite, utilise les <examples> fournis pour comprendre le ton.
+    3. Enfin, produis le résultat dans les balises <final_response>.
+  </workflow>
+  
+  <source_data>
+    [Coller ici vos données brutes, article ou code]
+  </source_data>
+
+  <examples>
+    <example_1>
+      <input>[Exemple d'entrée]</input>
+      <output>[Résultat attendu]</output>
+    </example_1>
+  </examples>
+</task_details>
+
+<output_format>
+  <style>[ex. Professionnel, Académique, Concis]</style>
+  <structure>
+    Utilise les balises XML suivantes dans ta réponse :
+    <thinking> pour ton raisonnement interne.
+    <final_response> pour la réponse finale.
+  </structure>
+</output_format>
+
+------ Meilleur prompt Claude 
+
+[RÔLE]
+Tu es [rôle/expertise spécifique].
+
+[CONTEXTE]
+[Informations de contexte pertinentes, contraintes ou situation]
+
+[TÂCHE]
+[Description claire et précise de ce que tu veux]
+
+[FORMAT]
+[Format de sortie souhaité, longueur, style]
+
+[EXEMPLES] (optionnel mais puissant)
+Entrée : [exemple d'entrée]
+Sortie : [exemple de sortie]
+
+[CONTRAINTES] (si nécessaire)
+- [Limitation spécifique 1]
+- [Limitation spécifique 2]
+
+------ Meilleur prompt Copilot 
+
+Tu es [RÔLE/PERSONA].
+
+Ta tâche : [OBJECTIF CLAIR].
+
+Contexte :
+[INFORMATIONS DE CONTEXTE]
+
+Exigences de sortie :
+- [FORMAT]
+- [TON]
+- [LONGUEUR]
+- [STRUCTURE]
+
+Exemples (optionnel) :
+[EXEMPLES DE STYLE OU DE QUALITÉ]
+
+Contraintes :
+- [RÈGLES OU LIMITES]
+
+Instruction finale :
+Fournis la réponse finale dans un format soigné et prêt à l'emploi.
+
+------ Meilleur prompt Grok 
+
+Tu es [DESCRIPTION DU RÔLE/PERSONA]. Tu es un(e) expert(e) en [DOMAINE/COMPÉTENCES PERTINENTES], reconnu(e) pour être [TRAITS CLÉS, ex. rigoureux, créatif, concis, impartial].
+
+Objectif/Tâche : [ÉNONCER CLAIREMENT L'OBJECTIF OU LA QUESTION PRINCIPALE].
+
+Contexte/Historique : [FOURNIR ICI TOUTE INFORMATION, DÉTAIL, CONTRAINTE OU DONNÉE PERTINENTE. Soyez précis pour éviter toute ambiguïté.]
+
+Consignes :
+- Réfléchis étape par étape avant de répondre.
+- Utilise un raisonnement logique et explique ton cheminement de pensée si pertinent.
+- [TOUTE RÈGLE SUPPLÉMENTAIRE, ex. Reste factuel ; Évite les biais ; Limite la réponse à 500 mots ; Sois encourageant].
+
+[OPTIONNEL : Exemples few-shot]
+Exemple 1 :
+Entrée : [EXEMPLE D'ENTRÉE]
+Sortie : [SORTIE ATTENDUE AVEC RAISONNEMENT]
+
+Exemple 2 :
+...
+
+Format de sortie :
+[SPÉCIFIER LA STRUCTURE EXACTE, ex. :
+- Utiliser des puces ou une liste numérotée
+- Commencer par un résumé
+- Terminer par les points clés à retenir
+- Répondre en JSON : {"section1": "...", "section2": "..."}
+- Utiliser le markdown pour les titres/tableaux]
+
+Maintenant, réponds à ceci : [VOTRE VÉRITABLE REQUÊTE OU ENTRÉE ICI].
+
+---
+
+## 🇬🇧 English
+
 ___
 **AI :**      
 **Context files :**      
@@ -40,7 +247,7 @@ Avoid:               (No jargon or slang.)
 
 [Examples]        (If Helpful)
 
-Good/bad examples:   (Here’s a post I liked..)
+Good/bad examples:   (Here's a post I liked..)
 
 [Output]          (Clarify Delivery)
 
@@ -196,5 +403,3 @@ Output Format:
 - Use markdown for headings/tables]
 
 Now, respond to this: [YOUR ACTUAL QUERY OR INPUT HERE].
-
-
