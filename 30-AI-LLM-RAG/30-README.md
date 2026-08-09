@@ -1,3 +1,174 @@
+*🇫🇷 Version française ci-dessous — la version anglaise suit plus bas. / 🇬🇧 English version follows further down.*
+
+## 🇫🇷 Français
+
+# 30-AI-LLM-RAG
+
+### Assisté par IA
+
+Cette section du projet se concentre sur l'application de techniques d'IA au **RAG avec un LLM LOCAL**.
+
+### Objectifs
+
+L'objectif de cette expérimentation RAG, menée en collaboration avec un LLM local, n'est pas d'utiliser le RAG en tant que tel, mais plutôt d'évaluer, gérer et contrôler sa qualité.
+Le défi ici est de s'assurer que l'IA ne produit pas d'hallucinations qui pourraient induire l'utilisateur en erreur et qu'elle fournit l'information et la performance les plus précises possibles.
+
+### Outils & Technologies
+
+1. **Assistant IA utilisé :** ChatGPT 5.2, Claude Opus 4.5 
+1. **Modèles d'IA utilisés :** Mistral 8B Instruct v0.3
+2. **Frameworks utilisés :** LM Studio, AnythingLLM 
+3. **Matériel utilisé :**   
+PC de jeu (16 Go RAM + 12 Go RAM RTX 3060, 2 To)  
+Portable (32 Go RAM, 1 To)
+
+### Comment j'ai procédé
+
+* Discussion avec ChatGPT pour obtenir des conseils sur les outils et technologies pour un laboratoire RAG LLM local optimal 
+* Discussion avec ChatGPT sur un framework optimal et un guide d'installation
+* Discussion avec ChatGPT pour générer un plan de test RAG LLM local  
+* Discussion avec Claude Opus pour créer une suite de tests automatisés basée sur le plan de test  
+* Résultat
+    * doc/```INTSALL.md```   
+    ```
+        1.  Architecture globale utilisée
+        2.  Matériel
+        3.  Configuration réseau (installation LAN)
+        4.  Installation et configuration de LM Studio (PC de jeu)
+        5.  Configuration du serveur API local LM Studio
+        6.  Configuration du pare-feu (Windows)
+        7.  Test de connectivité API depuis le portable
+        8.  Installation et configuration d'AnythingLLM (portable)
+        9.  Configuration du LLM & des embeddings dans AnythingLLM
+        10. Premier test RAG
+        11. Paramètres recommandés pour la qualité RAG
+        12. Guide de dépannage  
+    ```
+    * doc/```testplan_post_installation.md```
+    ```
+        1.  Objectif
+        2.  Cas de test : Aucun modèle téléchargé
+        3.  Cas de test : Modèle téléchargé et chargé
+        4.  Cas de test : La mémoire GPU est utilisée
+        5.  Cas de test : La réponse utilise uniquement les documents intégrés
+        6.  Cas de test : Réponse complète
+        7.  Cas de test : Réponse partielle
+        8.  Cas de test : Information non disponible dans les documents locaux
+        9.  Liste de validation finale
+        10. Résultat
+    ```    
+    * doc/```testplan_behavior.md```
+    ```
+        1.  Référence de performance (latence + tokens/sec)
+        2.  Concurrence / requêtes multiples
+        3.  Test de stress de la fenêtre de contexte
+        4.  Précision de la récupération vs bruit (réglage Top-K / seuil)
+        5.  Validation de mise à jour / réindexation des documents
+        6.  Test d'ingestion de documents volumineux
+        7.  Robustesse au format non textuel (PDF, tableaux, blocs de code)
+        8.  Résistance à l'injection de prompt (basée sur les documents)
+        9.  Résilience réseau (déconnexion temporaire)
+        10. Test de régression lors du changement de modèle (qualité & compatibilité)
+        11. Astuce : suivre les résultats
+    ``` 
+    * doc/```testplan_automated.md```
+    ```
+        1. Analyse de l'environnement
+        2. Analyse des plans de test
+        3. Stratégie d'automatisation
+        4. Mise en place du framework de test
+        5. Implémentation des tests automatisés
+        6. Guide d'exécution des tests
+        7. Catégories de tests & matrice de couverture
+        8. Intégration CI/CD (optionnel)
+        9. Maintenance & bonnes pratiques   
+    ```
+    * src/tests
+      ```Suite de tests Pytest```
+      ```
+        run_tests.py           - Déclencheur de la suite de tests
+        test_infrastructure.py - Tests d'infrastructure et de connectivité pour la configuration LM Studio  
+        test_llm_api.py        - Tests fonctionnels de l'API LLM pour valider le comportement du modèle  
+        test_performance.py    - Tests de performance et de charge pour l'inférence LLM  
+        test_rag_validation.py - Tests de validation spécifiques au RAG         
+      ```  
+    * src/test/results
+      ```
+        Rapports de résultats de tests - format HTML 
+      ```
+
+
+
+### Mes découvertes IA 
+
+#### Très utile.. mais pas magique !
+
+Utiliser un LLM local peut sembler magique et facile au premier abord, mais ce que j'apprends en explorant ce sujet de RAG LLM démontre clairement que l'IA est une entité apprenante, et se nourrit donc de données.
+
+Un peu comme un enfant qui va à l'école, s'il n'est pas correctement enseigné, il ne pourra pas produire de bons résultats.
+
+Nous devons constamment prêter attention à la manière dont l'information est transmise, gérée et structurée, et par conséquent, tester en continu la qualité de ses performances et résultats.
+
+#### Un bon exemple ..
+
+Contrairement à un simple programme informatique qui répond à des commandes en utilisant un langage de programmation spécifique, un modèle de langage apprenant (LML) doit être entraîné pour comprendre nos besoins.
+
+Lors de l'utilisation d'un LML local, c'est encore plus vrai car les modèles utilisés sont beaucoup plus petits (moins entraînés) que les énormes modèles utilisés sur internet.
+
+Un bon exemple ici :
+
+Lorsque j'ai utilisé le modèle ```meta-llama-3-8b-instruct``` avec ces règles de prompt système :
+
+```
+1. Given the following conversation, relevant context, and a follow-up question, reply with an answer to the current question the user is asking.
+
+2. Return only your response to the question given the above information, following the user's instructions as needed.
+
+3. You must answer using ONLY the information contained in the provided embedded documents.
+
+4. Do NOT use general knowledge, assumptions, or external information.
+
+5. Do NOT attempt to infer, guess, or fabricate information.
+
+6. Provide a specific code at the end of my response indicating whether the answer was:
+
+. INFO-not_found (if the answer cannot be found explicitly in the embedded documents)
+
+. INFO-partial (if the answer is partial and not all information is contained in the embedded documents)
+
+. INFO-complete (if the answer is complete and all information is contained in the embedded documents)
+
+```
+
+La règle 6 n'a pas été bien comprise par le modèle.
+
+ex.   
+Pendant que je testais, j'ai posé la question :  
+```what color is the sky?```
+
+Une hallucination a été retournée en guise de réponse, parlant de nuages 😈
+
+J'ai expliqué à l'IA que cette information était fausse et que la règle 6 n'avait pas été correctement respectée
+
+Elle s'est excusée 😂 et a immédiatement changé sa réponse, indiquant qu'elle ne trouvait pas l'information et affichant le code correct à la fin : ```INFO-not_found```
+
+Après cette hallucination, j'ai essayé plusieurs fois avec d'autres questions dont l'information ne fait pas partie du document intégré.
+
+Plus aucune réponse hallucinée n'a été retournée.
+La réponse correcte était toujours ```INFO-not_found```
+
+Donc, puisque les documents intégrés évolueront, et que le modèle utilisé évoluera également (ex. changement de modèle, mise à jour du modèle), cette vérification, cet entraînement et cette approbation doivent être faits en continu (ex. via des tests **automatisés** et **exploratoires manuels**).
+
+#### Ma conclusion 
+
+Lors de l'utilisation de modèles d'IA locaux qui utilisent spécifiquement nos documents/informations, je soupçonne que cette IA doit être vérifiée, validée et entraînée en continu (manuellement ou automatiquement) pour la contrôler efficacement contre les erreurs de l'IA.
+
+Lorsque de nouveaux documents sont fournis, retirés ou ajustés, la suite de tests automatisés doit également être ajustée.
+
+---
+
+## 🇬🇧 English
+
 # 30-AI-LLM-RAG
 
 ## AI-Assisted
