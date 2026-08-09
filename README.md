@@ -2,7 +2,6 @@
 # SQAAILab
 > _Software Quality Assurance & Artificial Intelligence Laboratory_
 
-
 ## Project Overview
 
 This project explores how **Artificial Intelligence (AI)** can enhance **Software Quality Assurance (SQA)** practices.
@@ -67,6 +66,18 @@ This is the major trend right now. Instead of worrying about strict code syntax,
 ## 🔮 Future Areas of Exploration
 
 As this project evolves, it aims to explore a broader range of AI-driven capabilities across the Software Quality Assurance lifecycle, including (but not limited to):
+
+### 🔹 Autonomous / Agentic Testing
+Agents that autonomously plan, execute, diagnose, and adapt test suites (including self-healing) across the QA lifecycle with minimal human intervention (A part is already covered under "Vibe Coding Tests").
+
+### 🔹 Model Context Protocol (MCP) for QA Tooling
+Standardizing how AI agents connect to test tools, data sources, environments, and CI/CD systems through a common protocol 
+
+### 🔹 Context Engineering
+Deliberately designing, curating, and managing what an AI agent sees at each step — memory, retrieved documents, tool outputs, conversation history — to sustain performance as context grows. Goes beyond basic RAG toward agentic retrieval and multi-source context assembly for QA tasks.
+
+### 🔹 Multi-Agent QA Orchestration
+Coordinating teams of specialized AI agents (e.g., one reviewing code changes, one generating test data, one executing and analyzing results) working in parallel across the SQA lifecycle, rather than relying on a single general-purpose agent.
 
 ### 🔹 Intelligent Test Data Generation  
 Creating realistic, compliant, and scenario-focused test data using Generative AI and synthetic data techniques.
